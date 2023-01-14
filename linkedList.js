@@ -1,0 +1,28 @@
+import { LinkedList } from "./listAndNodeClasses.js";
+import { convertArrToList, getNumberFromUser, sortArray } from "./utils.js";
+
+let list = new LinkedList();
+
+// 1. Unsorted list
+// Complexity O(n) to fill the list and O(n) to find the number.
+console.log("1. Unsorted list");
+for (let i = 0; i < 50000; i++) {
+  list.add(Math.floor(Math.random() * 1000));
+}
+await list.search();
+
+//2. Sorted list
+// Complexity O(n) to convert list to array, O(n^2) to sort the array, O(n) to convert array back to list and O(n) to search the number.
+console.log("\n2. Sorted list");
+const arr = list.convertListToArr();
+sortArray(arr);
+list = convertArrToList(arr);
+console.log("List is now sorted.");
+await list.search();
+
+//3. Add value to list
+// Complexity O(n) to add node.
+console.log("\n3. Add value to list");
+const numToAdd = await getNumberFromUser();
+list.add(numToAdd);
+list.printList();
