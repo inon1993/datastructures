@@ -53,6 +53,30 @@ export class LinkedList {
     return counter;
   }
 
+  top() {
+    let curr = this.head;
+    while (curr.next !== null) {
+      curr = curr.next;
+    }
+    return curr.element;
+  }
+
+  pop() {
+    let curr = this.head;
+    if (curr === null) {
+      return null;
+    }
+    if (curr.next === null) {
+      this.head = null;
+      return null;
+    }
+    while (curr.next.next !== null) {
+      curr = curr.next;
+    }
+    curr.next = null;
+    return;
+  }
+
   convertListToArr() {
     let arr = new Array(this.findlength());
     let index = 0;

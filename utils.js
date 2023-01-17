@@ -83,3 +83,12 @@ export const getAction = async (type) => {
   rl.close();
   return action;
 };
+
+export const generateList = (num) => {
+  const list = new LinkedList();
+
+  for (let i = 0; i < num; i++) {
+    list.add(Math.floor(Math.random() * 1000));
+  }
+  return list;
+};

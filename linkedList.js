@@ -1,14 +1,15 @@
-import { LinkedList } from "./listAndNodeClasses.js";
-import { convertArrToList, getNumberFromUser, sortArray } from "./utils.js";
+import {
+  convertArrToList,
+  generateList,
+  getNumberFromUser,
+  sortArray,
+} from "./utils.js";
 
-let list = new LinkedList();
+let list = generateList(50000);
 
 // 1. Unsorted list
 // Complexity O(n) to fill the list and O(n) to find the number.
 console.log("1. Unsorted list");
-for (let i = 0; i < 50000; i++) {
-  list.add(Math.floor(Math.random() * 1000));
-}
 await list.search();
 
 //2. Sorted list

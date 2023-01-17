@@ -1,21 +1,17 @@
-import { getAction, getNumberFromUser } from "./utils.js";
+import { generateList, getAction, getNumberFromUser } from "./utils.js";
 
-const stack = new Array(10);
+const stack = generateList(10);
 
-for (let i = 0; i < stack.length; i++) {
-  stack[i] = Math.floor(Math.random() * 1000);
-}
-console.log(stack);
+stack.printList();
 
 const action = await getAction("stack");
 if (action === "push") {
   const num = await getNumberFromUser();
-  stack.push(num);
-  console.log(stack);
+  stack.add(num);
+  stack.printList();
 } else if (action === "pop") {
   stack.pop();
-  console.log(stack);
+  stack.printList();
 } else if (action === "top") {
-  const topStack = stack[stack.length - 1];
-  console.log(topStack);
+  console.log(stack.top());
 }
